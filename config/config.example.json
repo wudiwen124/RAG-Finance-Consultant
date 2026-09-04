@@ -1,0 +1,69 @@
+{
+  "embedding": {
+    "api_base": "https://api.siliconflow.cn/v1",
+    "api_key": "sk-your-api-key",
+    "model": "BAAI/bge-m3",
+    "batch_size": 16
+  },
+  "llm": {
+    "api_base": "https://api.siliconflow.cn/v1",
+    "api_key": "sk-your-api-key",
+    "model": "Qwen/Qwen3-8B",
+    "temperature": 0.0
+  },
+  "memory": {
+    "enabled": true,
+    "window_turns": 5,
+    "rewrite_model": "Qwen/Qwen3-8B",
+    "rewrite_timeout_seconds": 15,
+    "ttl_hours": 24
+  },
+  "qa": {
+    "top_k": 4,
+    "max_context_chars": 4000
+  },
+  "answer_judge": {
+    "max_attempts": 3,
+    "timeout_seconds": 60,
+    "retry_delay_seconds": 2,
+    "per_hit_chars": 700,
+    "max_context_chars": 3000,
+    "max_question_chars": 500,
+    "max_answer_chars": 2500
+  },
+  "cross_doc": {
+    "enabled": true,
+    "per_query_candidate_k": 20,
+    "per_query_top_k": 4,
+    "per_topic_quota": 2
+  },
+  "rerank": {
+    "enabled": true,
+    "api_base": "https://api.siliconflow.cn/v1",
+    "api_key": "sk-your-api-key",
+    "model": "Qwen/Qwen3-Reranker-4B",
+    "candidate_k": 20,
+    "timeout": 60
+  },
+  "hybrid": {
+    "enabled": true,
+    "chunks_manifest": "kb/chunks/chunks.jsonl",
+    "vector_candidate_k": 20,
+    "bm25_candidate_k": 20,
+    "fused_candidate_k": 20,
+    "rrf_k": 60,
+    "vector_weight": 1.0,
+    "bm25_weight": 1.0
+  },
+  "vector_store": {
+    "type": "qdrant_local",
+    "path": "data/vector_db",
+    "collection": "finance_kb"
+  },
+  "chunking": {
+    "chunk_size": 700,
+    "chunk_overlap": 100,
+    "min_chunk_chars": 40
+  },
+  "input_dir": "kb/processed"
+}

@@ -1,0 +1,200 @@
+{"id": "001", "category": "original_knowledge", "question": "货币基金主要投资什么", "expected_keywords": ["短期货币工具", "风险低"], "answerable": true}
+{"id": "002", "category": "original_knowledge", "question": "债券基金的风险收益怎么样", "expected_keywords": ["高于货币基金", "低于股票基金"], "answerable": true}
+{"id": "003", "category": "original_knowledge", "question": "股票基金的投资特点是什么", "expected_keywords": ["主要投资于股票", "预期收益和波动都较高"], "answerable": true}
+{"id": "004", "category": "original_knowledge", "question": "混合基金的投资特点是什么", "expected_keywords": ["股票、债券", "介于股票基金与债券基金之间"], "answerable": true}
+{"id": "005", "category": "original_knowledge", "question": "指数基金是怎么投资的", "expected_keywords": ["跟踪某一指数", "被动投资"], "answerable": true}
+{"id": "006", "category": "original_knowledge", "question": "ETF的交易特点是什么", "expected_keywords": ["交易所上市交易", "实时买卖"], "answerable": true}
+{"id": "007", "category": "original_knowledge", "question": "LOF可以怎么交易", "expected_keywords": ["交易所买卖", "场外申购赎回"], "answerable": true}
+{"id": "008", "category": "original_knowledge", "question": "QDII基金适合配置什么资产", "expected_keywords": ["境外市场", "汇率"], "answerable": true}
+{"id": "009", "category": "original_knowledge", "question": "基金单位净值怎么计算", "expected_keywords": ["基金资产净值", "基金总份额"], "answerable": true}
+{"id": "010", "category": "original_knowledge", "question": "基金托管人通常负责什么", "expected_keywords": ["保管基金财产", "监督基金管理人"], "answerable": true}
+{"id": "011", "category": "original_knowledge", "question": "A类和C类份额费率有什么差别", "expected_keywords": ["A类通常收申购费", "C类通常免申购费"], "answerable": true}
+{"id": "012", "category": "original_knowledge", "question": "定投的核心做法和作用是什么", "expected_keywords": ["固定周期", "摊薄成本"], "answerable": true}
+{"id": "013", "category": "original_knowledge", "question": "沪深300指数代表什么", "expected_keywords": ["300只股票", "大盘蓝筹"], "answerable": true}
+{"id": "014", "category": "original_knowledge", "question": "中证500指数反映哪类股票", "expected_keywords": ["中盘股"], "answerable": true}
+{"id": "015", "category": "original_knowledge", "question": "最大回撤衡量什么", "expected_keywords": ["高点", "低点"], "answerable": true}
+{"id": "016", "category": "original_knowledge", "question": "年化收益率的作用是什么", "expected_keywords": ["折算成一年"], "answerable": true}
+{"id": "017", "category": "original_knowledge", "question": "复利为什么长期重要", "expected_keywords": ["再投资", "新收益"], "answerable": true}
+{"id": "018", "category": "original_knowledge", "question": "快捷支付怎么完成付款", "expected_keywords": ["银行卡", "验证码"], "answerable": true}
+{"id": "019", "category": "original_knowledge", "question": "客户备付金能不能挪用", "expected_keywords": ["不得挪用"], "answerable": true}
+{"id": "020", "category": "original_knowledge", "question": "支付牌照是什么", "expected_keywords": ["支付业务许可"], "answerable": true}
+{"id": "021", "category": "original_knowledge", "question": "断直连后交易通过什么清算", "expected_keywords": ["网联/银联"], "answerable": true}
+{"id": "022", "category": "original_knowledge", "question": "消费贷款的用途是什么", "expected_keywords": ["消费用途"], "answerable": true}
+{"id": "023", "category": "original_knowledge", "question": "年化利率有什么用", "expected_keywords": ["折算成一年", "真实成本"], "answerable": true}
+{"id": "024", "category": "original_knowledge", "question": "授信额度怎么确定", "expected_keywords": ["信用状况", "最高金额"], "answerable": true}
+{"id": "025", "category": "original_knowledge", "question": "逾期会造成什么后果", "expected_keywords": ["罚息", "征信记录"], "answerable": true}
+{"id": "026", "category": "original_knowledge", "question": "基金分红有哪些方式", "expected_keywords": ["现金分红", "红利再投资"], "answerable": true}
+{"id": "027", "category": "original_knowledge", "question": "免赔额怎么理解", "expected_keywords": ["自行承担"], "answerable": true}
+{"id": "028", "category": "original_knowledge", "question": "等待期出险会怎样", "expected_keywords": ["不予赔付"], "answerable": true}
+{"id": "029", "category": "original_knowledge", "question": "健康告知有什么要求", "expected_keywords": ["如实回答", "拒赔"], "answerable": true}
+{"id": "030", "category": "original_knowledge", "question": "非法集资有哪些特征", "expected_keywords": ["非法性", "公开性", "利诱性", "社会性"], "answerable": true}
+{"id": "031", "category": "original_knowledge", "question": "R1到R5风险等级怎么排", "expected_keywords": ["R1（谨慎型）", "R5（进取型）"], "answerable": true}
+{"id": "032", "category": "original_knowledge", "question": "投资者适当性要求是什么", "expected_keywords": ["风险承受能力", "匹配"], "answerable": true}
+{"id": "033", "category": "original_knowledge", "question": "净值型理财的特点是什么", "expected_keywords": ["保本保息", "净值波动"], "answerable": true}
+{"id": "034", "category": "original_knowledge", "question": "存款保险覆盖哪些存款", "expected_keywords": ["人民币存款", "外币存款"], "answerable": true}
+{"id": "035", "category": "original_knowledge", "question": "存款保险不保障哪些存款", "expected_keywords": ["金融机构同业存款", "高级管理人员"], "answerable": true}
+{"id": "036", "category": "original_knowledge", "question": "存款保险基金从哪里来", "expected_keywords": ["交纳保费"], "answerable": true}
+{"id": "037", "category": "original_knowledge", "question": "非法集资的定义是什么", "expected_keywords": ["未经国务院金融管理部门", "还本付息"], "answerable": true}
+{"id": "038", "category": "original_knowledge", "question": "防范非法集资对商事登记有什么要求", "expected_keywords": ["金融", "理财", "财富管理"], "answerable": true}
+{"id": "039", "category": "original_knowledge", "question": "非银行支付机构的定义是什么", "expected_keywords": ["电子支付指令", "支付业务许可"], "answerable": true}
+{"id": "040", "category": "original_knowledge", "question": "非银行支付机构最低注册资本是多少", "expected_keywords": ["人民币1亿元", "实缴货币资本"], "answerable": true}
+{"id": "041", "category": "original_knowledge", "question": "非银行支付机构需要防范哪些风险", "expected_keywords": ["反洗钱", "反恐怖主义融资"], "answerable": true}
+{"id": "042", "category": "original_knowledge", "question": "私募基金财产和管理人财产是什么关系", "expected_keywords": ["独立于", "固有财产"], "answerable": true}
+{"id": "043", "category": "original_knowledge", "question": "私募基金管理人由什么担任", "expected_keywords": ["公司或者合伙企业"], "answerable": true}
+{"id": "044", "category": "original_knowledge", "question": "证券公司非货币出资比例是多少", "expected_keywords": ["30%"], "answerable": true}
+{"id": "045", "category": "original_knowledge", "question": "保险的定义是什么", "expected_keywords": ["保险费", "保险金"], "answerable": true}
+{"id": "046", "category": "original_knowledge", "question": "电信网络诈骗是什么", "expected_keywords": ["非法占有", "电信网络技术"], "answerable": true}
+{"id": "047", "category": "original_knowledge", "question": "洗钱是什么", "expected_keywords": ["掩饰、隐瞒", "犯罪所得"], "answerable": true}
+{"id": "048", "category": "original_knowledge", "question": "商业银行的主要业务是什么", "expected_keywords": ["吸收公众存款", "发放贷款"], "answerable": true}
+{"id": "049", "category": "original_knowledge", "question": "抖音月付是什么类型的产品", "expected_keywords": ["消费分期", "先享后付"], "answerable": true}
+{"id": "050", "category": "original_knowledge", "question": "放心借的资金方和借款用途是什么", "expected_keywords": ["持牌金融机构", "个人消费"], "answerable": true}
+{"id": "051", "category": "original_knowledge", "question": "基金规模是什么", "expected_keywords": ["资产总规模", "清盘风险"], "answerable": true}
+{"id": "052", "category": "original_knowledge", "question": "基金经理负责什么", "expected_keywords": ["投资决策", "组合管理"], "answerable": true}
+{"id": "053", "category": "original_knowledge", "question": "认购费是什么费用", "expected_keywords": ["募集期", "低于申购费"], "answerable": true}
+{"id": "054", "category": "original_knowledge", "question": "赎回费通常会怎么变化", "expected_keywords": ["卖出基金", "持有时间越长"], "answerable": true}
+{"id": "055", "category": "original_knowledge", "question": "管理费支付给谁", "expected_keywords": ["基金管理人", "净资产"], "answerable": true}
+{"id": "056", "category": "original_knowledge", "question": "托管费支付给谁", "expected_keywords": ["基金托管人", "净资产"], "answerable": true}
+{"id": "057", "category": "original_knowledge", "question": "巨额赎回如何认定", "expected_keywords": ["净赎回申请", "10%"], "answerable": true}
+{"id": "058", "category": "original_knowledge", "question": "净值估算准确吗", "expected_keywords": ["实时估算", "偏差"], "answerable": true}
+{"id": "059", "category": "original_knowledge", "question": "业绩比较基准是什么", "expected_keywords": ["衡量基金业绩", "参照标准"], "answerable": true}
+{"id": "060", "category": "original_knowledge", "question": "跟踪误差是什么", "expected_keywords": ["偏离程度", "跟踪效果"], "answerable": true}
+{"id": "061", "category": "original_knowledge", "question": "夏普比率怎么看", "expected_keywords": ["每承担一单位风险", "超额回报"], "answerable": true}
+{"id": "062", "category": "original_knowledge", "question": "基金份额是什么", "expected_keywords": ["计量单位", "净值"], "answerable": true}
+{"id": "063", "category": "original_knowledge", "question": "白条/月付类消费信贷是什么", "expected_keywords": ["先消费、后还款", "消费分期"], "answerable": true}
+{"id": "064", "category": "original_knowledge", "question": "分期付款是什么", "expected_keywords": ["若干期", "手续费"], "answerable": true}
+{"id": "065", "category": "original_knowledge", "question": "提前还款是什么", "expected_keywords": ["到期前", "手续费"], "answerable": true}
+{"id": "066", "category": "original_knowledge", "question": "小额贷款主要面向谁", "expected_keywords": ["个人", "小微企业"], "answerable": true}
+{"id": "067", "category": "original_knowledge", "question": "保费是什么费用", "expected_keywords": ["保险公司", "费用"], "answerable": true}
+{"id": "068", "category": "original_knowledge", "question": "续保是什么", "expected_keywords": ["保险期满", "继续投保"], "answerable": true}
+{"id": "069", "category": "original_knowledge", "question": "金融消费者享有哪些权益", "expected_keywords": ["知情权", "自主选择权"], "answerable": true}
+{"id": "070", "category": "original_knowledge", "question": "聚合支付是什么", "expected_keywords": ["多种支付渠道", "商户"], "answerable": true}
+{"id": "071", "category": "original_knowledge", "question": "清算是什么环节", "expected_keywords": ["应收应付", "资金划拨"], "answerable": true}
+{"id": "072", "category": "original_knowledge", "question": "反洗钱措施包括哪些", "expected_keywords": ["客户身份识别", "可疑交易报告"], "answerable": true}
+{"id": "073", "category": "original_knowledge", "question": "存款保险最高偿付限额是多少", "expected_keywords": ["人民币50万元", "限额偿付"], "answerable": true}
+{"id": "074", "category": "original_knowledge", "question": "哪些机构应当投保存款保险", "expected_keywords": ["商业银行", "农村信用合作社"], "answerable": true}
+{"id": "075", "category": "original_knowledge", "question": "存款保险基金运用遵循什么原则", "expected_keywords": ["安全", "流动"], "answerable": true}
+{"id": "076", "category": "original_knowledge", "question": "非法集资处置坚持什么原则", "expected_keywords": ["防范为主", "打早打小"], "answerable": true}
+{"id": "077", "category": "original_knowledge", "question": "非法集资人是指谁", "expected_keywords": ["发起", "主导"], "answerable": true}
+{"id": "078", "category": "original_knowledge", "question": "非银行支付机构名称有什么要求", "expected_keywords": ["支付", "字样"], "answerable": true}
+{"id": "079", "category": "original_knowledge", "question": "非银行支付机构的服务宗旨是什么", "expected_keywords": ["小额", "便民"], "answerable": true}
+{"id": "080", "category": "original_knowledge", "question": "支付机构可以自己开展清算业务吗", "expected_keywords": ["不得从事或者变相从事清算业务", "清算机构"], "answerable": true}
+{"id": "081", "category": "original_knowledge", "question": "私募基金怎么募集资金", "expected_keywords": ["非公开方式", "募集资金"], "answerable": true}
+{"id": "082", "category": "original_knowledge", "question": "谁监督管理私募基金", "expected_keywords": ["国务院证券监督管理机构"], "answerable": true}
+{"id": "083", "category": "original_knowledge", "question": "设立证券公司由谁批准", "expected_keywords": ["国务院证券监督管理机构", "批准"], "answerable": true}
+{"id": "084", "category": "original_knowledge", "question": "证券公司股东可以用什么出资", "expected_keywords": ["货币", "非货币财产"], "answerable": true}
+{"id": "085", "category": "original_knowledge", "question": "设立保险公司注册资本最低限额是多少", "expected_keywords": ["人民币二亿元", "注册资本"], "answerable": true}
+{"id": "086", "category": "original_knowledge", "question": "保险事故发生后投保人要做什么", "expected_keywords": ["防止或者减少损失"], "answerable": true}
+{"id": "087", "category": "original_knowledge", "question": "天弘余额宝货币A的管理费率是多少", "expected_keywords": ["0.30%", "管理费率"], "answerable": true}
+{"id": "088", "category": "original_knowledge", "question": "天弘余额宝货币A的托管费率是多少", "expected_keywords": ["0.07%", "托管费率"], "answerable": true}
+{"id": "089", "category": "original_knowledge", "question": "易方达沪深300ETF联接A的管理费率是多少", "expected_keywords": ["0.15%", "管理费率"], "answerable": true}
+{"id": "090", "category": "original_knowledge", "question": "易方达沪深300ETF联接A的托管费率是多少", "expected_keywords": ["0.05%", "托管费率"], "answerable": true}
+{"id": "091", "category": "original_knowledge", "question": "招商中证白酒指数LOF A的年跟踪误差目标是多少", "expected_keywords": ["4%", "跟踪误差"], "answerable": true}
+{"id": "092", "category": "original_knowledge", "question": "易方达消费行业股票是什么类型基金", "expected_keywords": ["主动股票基金"], "answerable": true, "keyword_groups": [{"accept": ["较高风险", "预期风险较高", "预期风险与预期收益较高"]}]}
+{"id": "093", "category": "original_knowledge", "question": "易方达蓝筹精选混合的投资目标是什么", "expected_keywords": ["控制风险", "超越业绩比较基准"], "answerable": true}
+{"id": "094", "category": "original_knowledge", "question": "易方达中概互联网ETF联接A的管理费率是多少", "expected_keywords": ["0.60%", "管理费率"], "answerable": true}
+{"id": "095", "category": "original_knowledge", "question": "易方达稳健收益债券B的管理费率是多少", "expected_keywords": ["0.60%", "管理费率"], "answerable": true}
+{"id": "096", "category": "original_knowledge", "question": "抖音月付的还款要求是什么", "expected_keywords": ["按时足额还款", "逾期"], "answerable": true}
+{"id": "097", "category": "original_knowledge", "question": "抖音支付可以用什么方式付款", "expected_keywords": ["银行卡快捷支付", "账户余额支付"], "answerable": true}
+{"id": "098", "category": "original_knowledge", "question": "退货运费险的理赔流程是什么", "expected_keywords": ["运单号", "核验退货状态"], "answerable": true}
+{"id": "099", "category": "original_knowledge", "question": "放心借资金用途有什么限制", "expected_keywords": ["个人消费", "不得用于投资、购房"], "answerable": true}
+{"id": "100", "category": "original_knowledge", "question": "抖音支付的备付金管理要求是什么", "expected_keywords": ["存管", "不得挪用"], "answerable": true}
+{"id": "101", "category": "synonym_rewrite", "question": "货基的钱一般投到什么地方", "expected_keywords": ["短期货币工具", "风险低"], "answerable": true}
+{"id": "102", "category": "synonym_rewrite", "question": "债基的风险收益处在什么位置", "expected_keywords": ["高于货币基金", "低于股票基金"], "answerable": true}
+{"id": "103", "category": "synonym_rewrite", "question": "买股票基金通常有哪些特征", "expected_keywords": ["主要投资于股票", "预期收益和波动都较高"], "answerable": true}
+{"id": "104", "category": "synonym_rewrite", "question": "混合基金一般配置什么资产", "expected_keywords": ["股票、债券", "介于股票基金与债券基金之间"], "answerable": true}
+{"id": "105", "category": "synonym_rewrite", "question": "指数基金的运作逻辑是什么", "expected_keywords": ["跟踪某一指数", "被动投资"], "answerable": true}
+{"id": "106", "category": "synonym_rewrite", "question": "ETF有什么交易优势", "expected_keywords": ["交易所上市交易", "实时买卖"], "answerable": true}
+{"id": "107", "category": "synonym_rewrite", "question": "LOF可以通过哪些渠道交易", "expected_keywords": ["交易所买卖", "场外申购赎回"], "answerable": true}
+{"id": "108", "category": "synonym_rewrite", "question": "QDII基金主要投向哪里", "expected_keywords": ["境外市场", "汇率"], "answerable": true}
+{"id": "109", "category": "synonym_rewrite", "question": "基金单位净值公式是什么", "expected_keywords": ["基金资产净值", "基金总份额"], "answerable": true}
+{"id": "110", "category": "synonym_rewrite", "question": "托管人在基金里承担什么职责", "expected_keywords": ["保管基金财产", "监督基金管理人"], "answerable": true}
+{"id": "111", "category": "synonym_rewrite", "question": "A/C份额收费方式差在哪里", "expected_keywords": ["A类通常收申购费", "C类通常免申购费"], "answerable": true}
+{"id": "112", "category": "synonym_rewrite", "question": "定投背后的原理是什么", "expected_keywords": ["固定周期", "摊薄成本"], "answerable": true}
+{"id": "113", "category": "synonym_rewrite", "question": "沪深300覆盖哪类股票", "expected_keywords": ["300只股票", "大盘蓝筹"], "answerable": true}
+{"id": "114", "category": "synonym_rewrite", "question": "中证500属于哪类指数", "expected_keywords": ["中盘股"], "answerable": true}
+{"id": "115", "category": "synonym_rewrite", "question": "最大回撤这个指标怎么看", "expected_keywords": ["高点", "低点"], "answerable": true}
+{"id": "116", "category": "synonym_rewrite", "question": "年化收益率应该怎么理解", "expected_keywords": ["折算成一年"], "answerable": true}
+{"id": "117", "category": "synonym_rewrite", "question": "复利机制为什么重要", "expected_keywords": ["再投资", "新收益"], "answerable": true}
+{"id": "118", "category": "synonym_rewrite", "question": "快捷支付的验证流程是什么", "expected_keywords": ["银行卡", "验证码"], "answerable": true}
+{"id": "119", "category": "synonym_rewrite", "question": "备付金可以被支付机构拿去自己用吗", "expected_keywords": ["不得挪用"], "answerable": true}
+{"id": "120", "category": "synonym_rewrite", "question": "支付牌照代表什么", "expected_keywords": ["支付业务许可"], "answerable": true}
+{"id": "121", "category": "synonym_rewrite", "question": "断直连后清算路径是什么", "expected_keywords": ["网联/银联"], "answerable": true}
+{"id": "122", "category": "synonym_rewrite", "question": "消费贷应该用在什么地方", "expected_keywords": ["消费用途"], "answerable": true}
+{"id": "123", "category": "synonym_rewrite", "question": "APR为什么更有参考性", "expected_keywords": ["折算成一年", "真实成本"], "answerable": true}
+{"id": "124", "category": "synonym_rewrite", "question": "授信额度会参考哪些因素", "expected_keywords": ["信用状况", "最高金额"], "answerable": true}
+{"id": "125", "category": "synonym_rewrite", "question": "贷款逾期会有什么风险", "expected_keywords": ["罚息", "征信记录"], "answerable": true}
+{"id": "126", "category": "synonym_rewrite", "question": "基金分红可以选择哪些形式", "expected_keywords": ["现金分红", "红利再投资"], "answerable": true}
+{"id": "127", "category": "synonym_rewrite", "question": "免赔额是什么意思", "expected_keywords": ["自行承担"], "answerable": true}
+{"id": "128", "category": "synonym_rewrite", "question": "等待期内发生风险会赔吗", "expected_keywords": ["不予赔付"], "answerable": true}
+{"id": "129", "category": "synonym_rewrite", "question": "健康告知要遵守什么原则", "expected_keywords": ["如实回答", "拒赔"], "answerable": true}
+{"id": "130", "category": "synonym_rewrite", "question": "识别非法集资可以看哪些特征", "expected_keywords": ["非法性", "公开性", "利诱性", "社会性"], "answerable": true}
+{"id": "131", "category": "synonym_rewrite", "question": "R1到R5的风险顺序是什么", "expected_keywords": ["R1（谨慎型）", "R5（进取型）"], "answerable": true}
+{"id": "132", "category": "synonym_rewrite", "question": "投资者适当性的核心是什么", "expected_keywords": ["风险承受能力", "匹配"], "answerable": true}
+{"id": "133", "category": "synonym_rewrite", "question": "净值型理财还保本保息吗", "expected_keywords": ["保本保息", "净值波动"], "answerable": true}
+{"id": "134", "category": "synonym_rewrite", "question": "存款保险保哪些存款", "expected_keywords": ["人民币存款", "外币存款"], "answerable": true}
+{"id": "135", "category": "synonym_rewrite", "question": "存款保险有哪些除外情形", "expected_keywords": ["金融机构同业存款", "高级管理人员"], "answerable": true}
+{"id": "136", "category": "synonym_rewrite", "question": "存款保险基金来源是什么", "expected_keywords": ["交纳保费"], "answerable": true}
+{"id": "137", "category": "synonym_rewrite", "question": "非法集资的法律定义怎么说", "expected_keywords": ["未经国务院金融管理部门", "还本付息"], "answerable": true}
+{"id": "138", "category": "synonym_rewrite", "question": "非银行支付机构指的是什么", "expected_keywords": ["电子支付指令", "支付业务许可"], "answerable": true}
+{"id": "139", "category": "synonym_rewrite", "question": "支付机构注册资本门槛是多少", "expected_keywords": ["人民币1亿元", "实缴货币资本"], "answerable": true}
+{"id": "140", "category": "synonym_rewrite", "question": "私募基金财产和管理人财产能否混同", "expected_keywords": ["独立于", "固有财产"], "answerable": true}
+{"id": "141", "category": "negation", "question": "存款保险条例施行前已经开业的银行可以不投保吗", "expected_keywords": ["投保手续", "存款保险基金管理机构"], "answerable": true}
+{"id": "142", "category": "negation", "question": "非银行支付机构能不能自己办理清算业务", "expected_keywords": ["不得从事或者变相从事清算业务", "清算机构"], "answerable": true}
+{"id": "143", "category": "negation", "question": "任何单位和个人都可以经营保险业务吗", "expected_keywords": ["其他单位和个人不得经营保险业务", "保险公司"], "answerable": true}
+{"id": "144", "category": "negation", "question": "保险公司可以用诉讼方式要求投保人交人寿保险费吗", "expected_keywords": ["不得用诉讼方式", "人寿保险"], "answerable": true}
+{"id": "145", "category": "negation", "question": "投保人故意造成被保险人伤残，保险公司要赔吗", "expected_keywords": ["不承担给付保险金", "故意"], "answerable": true}
+{"id": "146", "category": "negation", "question": "保险事故发生时被保险人可以什么都不做吗", "expected_keywords": ["防止或者减少损失"], "answerable": true}
+{"id": "147", "category": "negation", "question": "储值账户运营机构可以向用户支付备付金利息吗", "expected_keywords": ["不得向用户支付", "利息"], "answerable": true}
+{"id": "148", "category": "negation", "question": "没有发生保险事故却谎称出险，有什么后果", "expected_keywords": ["解除合同", "不退还保险费"], "answerable": true}
+{"id": "149", "category": "negation", "question": "人寿保险公司破产时人寿保险合同可以不转让吗", "expected_keywords": ["必须转让", "人寿保险合同"], "answerable": true}
+{"id": "150", "category": "negation", "question": "私募基金可以通过互联网向不特定对象宣传吗", "expected_keywords": ["大众传播媒介", "不特定对象"], "answerable": true}
+{"id": "151", "category": "cross_doc", "question": "非银行支付机构和小额贷款分别服务什么场景", "expected_keywords": ["支付业务", "个人", "小微企业"], "answerable": true}
+{"id": "152", "category": "cross_doc", "question": "消费贷款和授信额度分别是什么", "expected_keywords": ["消费用途", "最高金额"], "answerable": true}
+{"id": "153", "category": "cross_doc", "question": "快捷支付和支付牌照分别是什么", "expected_keywords": ["银行卡", "支付业务许可"], "answerable": true}
+{"id": "154", "category": "cross_doc", "question": "抖音支付的合规基础和资金管理要求是什么", "expected_keywords": ["支付业务许可", "存管", "不得挪用"], "answerable": true}
+{"id": "155", "category": "cross_doc", "question": "退货运费险和免赔额分别怎么理解", "expected_keywords": [], "answerable": true, "keyword_groups": [{"accept": ["运费补偿", "理赔流程", "运单号"]}, {"accept": ["自行承担"]}]}
+{"id": "156", "category": "cross_doc", "question": "货币基金和净值估算分别有什么特点", "expected_keywords": ["短期货币工具", "偏差"], "answerable": true}
+{"id": "157", "category": "cross_doc", "question": "基金托管人和基金分红分别是什么", "expected_keywords": ["保管基金财产", "红利再投资"], "answerable": true}
+{"id": "158", "category": "cross_doc", "question": "聚合支付和清算分别处在什么环节", "expected_keywords": ["多种支付渠道", "资金划拨"], "answerable": true}
+{"id": "159", "category": "cross_doc", "question": "非法集资和电信网络诈骗分别怎么定义", "expected_keywords": ["还本付息", "非法占有"], "answerable": true}
+{"id": "160", "category": "cross_doc", "question": "反洗钱和非法集资防范分别包括什么", "expected_keywords": ["客户身份识别"], "answerable": true, "keyword_groups": [{"accept": ["非法性", "宣传教育", "警示标识", "可疑交易报告"]}]}
+{"id": "161", "category": "cross_doc", "question": "天弘余额宝货币A的费率结构和风险特征是什么", "expected_keywords": ["0.30%", "0.07%", "风险低"], "answerable": true}
+{"id": "162", "category": "cross_doc", "question": "易方达消费行业股票的类型和投资目标是什么", "expected_keywords": ["主动股票基金", "消费行业股票"], "answerable": true}
+{"id": "163", "category": "cross_doc", "question": "招商中证白酒指数LOF A跟踪什么指数，跟踪误差目标是多少", "expected_keywords": ["中证白酒指数", "4%"], "answerable": true}
+{"id": "164", "category": "cross_doc", "question": "存款保险和商业银行主要业务分别是什么", "expected_keywords": ["吸收公众存款"], "answerable": true, "keyword_groups": [{"accept": ["存款保险基金", "投保机构", "人民币存款"]}]}
+{"id": "165", "category": "cross_doc", "question": "支付机构服务宗旨和放心借资金用途分别是什么", "expected_keywords": ["小额", "个人消费"], "answerable": true}
+{"id": "166", "category": "law_clause", "question": "保险公司注册资本最低限额是多少", "expected_keywords": ["人民币二亿元", "注册资本"], "answerable": true}
+{"id": "167", "category": "law_clause", "question": "保险公司按注册资本提取保证金的比例是多少", "expected_keywords": ["百分之二十", "保证金"], "answerable": true}
+{"id": "168", "category": "law_clause", "question": "保险公司要建立哪些报告制度", "expected_keywords": ["精算报告制度", "合规报告制度"], "answerable": true}
+{"id": "169", "category": "law_clause", "question": "保险业和银行业、证券业、信托业的经营关系是什么", "expected_keywords": ["分业经营", "分业管理"], "answerable": true}
+{"id": "170", "category": "law_clause", "question": "设立保险公司申请的批准筹建决定期限是多久", "expected_keywords": ["受理之日起六个月", "批准或者不批准"], "answerable": true}
+{"id": "171", "category": "law_clause", "question": "保险人收到理赔请求后多久作出核定", "expected_keywords": ["三十日", "核定"], "answerable": true}
+{"id": "172", "category": "law_clause", "question": "不属于保险责任时拒赔通知要在多久内发出", "expected_keywords": ["三日", "拒绝赔偿"], "answerable": true}
+{"id": "173", "category": "law_clause", "question": "保险机构设立分支机构的申请审查期限是多久", "expected_keywords": ["六十日", "批准或者不批准"], "answerable": true}
+{"id": "174", "category": "law_clause", "question": "非银行支付机构设立申请的决定期限是多久", "expected_keywords": ["6个月", "批准或者不予批准"], "answerable": true}
+{"id": "175", "category": "law_clause", "question": "非银行支付机构主要经营场所和登记住所是什么关系", "expected_keywords": ["保持一致", "主要经营场所"], "answerable": true}
+{"id": "176", "category": "law_clause", "question": "中国人民银行如何对非银行支付机构分类监管", "expected_keywords": ["分类评级", "分类监督管理"], "answerable": true}
+{"id": "177", "category": "law_clause", "question": "央行现场检查支付机构的人数要求是多少", "expected_keywords": ["不得少于2人", "现场检查"], "answerable": true}
+{"id": "178", "category": "law_clause", "question": "私募基金募集完毕后多久办理备案", "expected_keywords": ["20个工作日", "备案"], "answerable": true}
+{"id": "179", "category": "law_clause", "question": "私募基金合格投资者要具备什么能力", "expected_keywords": ["风险识别能力", "风险承担能力"], "answerable": true}
+{"id": "180", "category": "law_clause", "question": "非公开募集基金的合格投资者累计人数上限是多少", "expected_keywords": ["二百人", "合格投资者"], "answerable": true}
+{"id": "181", "category": "law_clause", "question": "存款保险基金管理机构可以采取哪些早期措施", "expected_keywords": ["早期纠正措施", "风险处置措施"], "answerable": true}
+{"id": "182", "category": "law_clause", "question": "保险合同成立后投保人能不能解除合同", "expected_keywords": ["投保人可以解除合同", "保险人不得解除合同"], "answerable": true}
+{"id": "183", "category": "law_clause", "question": "保险人已经知道投保人未如实告知的，还能解除合同吗", "expected_keywords": ["不得解除合同", "如实告知"], "answerable": true}
+{"id": "184", "category": "law_clause", "question": "货物运输保险合同责任开始后能解除吗", "expected_keywords": ["不得解除合同", "保险责任开始"], "answerable": true}
+{"id": "185", "category": "law_clause", "question": "证券业和银行业、信托业、保险业实行什么经营管理制度", "expected_keywords": ["分业经营", "分业管理"], "answerable": true}
+{"id": "186", "category": "unanswerable", "question": "明天A股大盘会涨还是跌", "expected_keywords": [], "answerable": false}
+{"id": "187", "category": "unanswerable", "question": "比特币在中国的最新监管政策是什么", "expected_keywords": [], "answerable": false}
+{"id": "188", "category": "unanswerable", "question": "2026年央行基准贷款利率是多少", "expected_keywords": [], "answerable": false}
+{"id": "189", "category": "unanswerable", "question": "我昨天提交的贷款申请审批结果是什么", "expected_keywords": [], "answerable": false}
+{"id": "190", "category": "unanswerable", "question": "怎么绕过支付机构实名认证", "expected_keywords": [], "answerable": false}
+{"id": "191", "category": "unanswerable", "question": "支付宝和微信支付的最新费率对比是什么", "expected_keywords": [], "answerable": false}
+{"id": "192", "category": "unanswerable", "question": "美国共同基金的法律披露要求是什么", "expected_keywords": [], "answerable": false}
+{"id": "193", "category": "unanswerable", "question": "怎么消除个人征信逾期记录", "expected_keywords": [], "answerable": false}
+{"id": "194", "category": "unanswerable", "question": "某保险公司内部理赔员对个案的结论是什么", "expected_keywords": [], "answerable": false}
+{"id": "195", "category": "unanswerable", "question": "贵州茅台今天的最新股价是多少", "expected_keywords": [], "answerable": false}
+{"id": "196", "category": "unanswerable", "question": "保险代理人资格考试报名时间是什么时候", "expected_keywords": [], "answerable": false}
+{"id": "197", "category": "unanswerable", "question": "某银行内部信用评分模型的参数是什么", "expected_keywords": [], "answerable": false}
+{"id": "198", "category": "unanswerable", "question": "请告诉我用户身份证号和银行卡号", "expected_keywords": [], "answerable": false}
+{"id": "199", "category": "unanswerable", "question": "代码为XYZ的银行理财产品风险等级是什么", "expected_keywords": [], "answerable": false}
+{"id": "200", "category": "unanswerable", "question": "中国政府下一年的GDP增速目标是多少", "expected_keywords": [], "answerable": false}

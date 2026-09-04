@@ -1,0 +1,11 @@
+requests>=2.31
+lxml>=5.0
+numpy>=1.26
+rank-bm25>=0.2.2
+jieba>=0.42
+qdrant-client>=1.9
+langchain>=1.0
+langchain-openai>=1.0
+langchain-qdrant>=1.0
+fastapi>=0.110
+uvicorn>=0.29

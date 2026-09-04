@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets and local configuration
+.env
+.env.*
+config/config.json
+
+# Generated vector store and caches
+data/vector_db/
+*.sqlite
+*.sqlite-journal
+*.log
+
+# Project summary / resume document
+project_summary.txt

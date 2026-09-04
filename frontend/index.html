@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="logo.png">
+<title>FinRAG · 金融知识库问答</title>
+<style>
+  :root {
+    --navy: #1e3a5f;
+    --navy-deep: #152740;
+    --gold: #d4a843;
+    --gold-light: #fdf6e3;
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --sub: #6b7280;
+    --border: #e5e7eb;
+    --user-bg: #1e3a5f;
+    --ai-bg: #ffffff;
+    --refusal-bg: #fef3c7;
+    --refusal: #92400e;
+    --radius: 16px;
+    --shadow: 0 1px 3px rgba(30,58,95,.08), 0 4px 12px rgba(30,58,95,.05);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text);
+    display: flex; flex-direction: column; height: 100vh;
+  }
+
+  /* ===== Header ===== */
+  header {
+    background: var(--card); border-bottom: 1px solid var(--border);
+    padding: 12px 24px; display: flex; align-items: center; gap: 12px;
+    position: sticky; top: 0; z-index: 10;
+  }
+  header img.logo { width: 38px; height: 38px; border-radius: 10px; object-fit: contain; }
+  .brand { display: flex; flex-direction: column; }
+  .brand h1 { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .brand small { font-size: 11.5px; color: var(--sub); }
+  .health {
+    margin-left: auto; display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--sub);
+  }
+  .new-session {
+    margin-left: auto; padding: 7px 12px; background: var(--bg); color: var(--navy);
+    border: 1px solid var(--border); border-radius: 8px; font-size: 12.5px;
+    cursor: pointer; transition: all .2s;
+  }
+  .new-session:hover { background: var(--gold-light); border-color: var(--gold); }
+  .health .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: background .3s; }
+  .health .dot.on { background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.15); }
+
+  /* ===== Chat area ===== */
+  #chat {
+    flex: 1; overflow-y: auto; padding: 28px 24px 16px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  #chat::-webkit-scrollbar { width: 5px; }
+  #chat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  .row { display: flex; gap: 10px; max-width: 760px; width: 100%; margin: 0 auto; animation: rise .3s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .avatar {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; object-fit: contain;
+    background: var(--gold-light); border: 1px solid var(--border);
+  }
+  .row.user { flex-direction: row-reverse; }
+  .row.user .avatar {
+    background: var(--user-bg); border: none;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 14px; font-weight: 600;
+  }
+
+  .col { display: flex; flex-direction: column; gap: 4px; max-width: calc(100% - 46px); }
+  .row.user .col { align-items: flex-end; }
+
+  .bubble {
+    padding: 12px 16px; border-radius: var(--radius); line-height: 1.7; font-size: 14.5px;
+    white-space: pre-wrap; word-break: break-word; box-shadow: var(--shadow);
+  }
+  .row.ai .bubble { background: var(--ai-bg); border: 1px solid var(--border); border-top-left-radius: 4px; }
+  .row.user .bubble { background: var(--user-bg); color: #fff; border-top-right-radius: 4px; }
+  .bubble.refusal { background: var(--refusal-bg); color: var(--refusal); border-color: #fde68a; }
+
+  .time { font-size: 11px; color: var(--sub); padding: 0 4px; }
+
+/* citations */
+  .citations { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .cite {
+    font-size: 12.5px; color: var(--sub); background: var(--bg);
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px;
+    cursor: pointer; transition: background .15s, border-color .15s;
+  }
+  .cite:hover { background: var(--gold-light); border-color: var(--gold); }
+  .cite b { color: var(--gold); margin-right: 6px; font-weight: 700; }
+  .cite .snippet { display: none; margin-top: 6px; color: var(--text); border-top: 1px solid var(--border); padding-top: 6px; }
+  .cite.open .snippet { display: block; }
+
+  /* typing */
+  .typing { display: flex; gap: 5px; padding: 4px 0; }
+  .typing .ball { width: 7px; height: 7px; border-radius: 50%; background: var(--sub); animation: bounce .6s infinite alternate; }
+  .typing .ball:nth-child(2) { animation-delay: .2s; }
+  .typing .ball:nth-child(3) { animation-delay: .4s; }
+  @keyframes bounce { from { opacity: .3; transform: translateY(0); } to { opacity: 1; transform: translateY(-5px); } }
+
+  /* 模型已开始生成，但正文 token 还没到达时的“思考中”提示 */
+  .thinking { display: flex; align-items: center; gap: 8px; color: var(--sub); font-size: 13px; }
+
+  /* empty / hero */
+  .hero {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; padding: 40px 20px; text-align: center;
+  }
+  .hero img { width: 96px; height: 96px; object-fit: contain; }
+  .hero h2 { font-size: 22px; font-weight: 700; color: var(--navy); }
+  .hero p { font-size: 14px; color: var(--sub); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
+  .chip {
+    padding: 9px 18px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 22px; font-size: 13.5px; color: var(--navy); cursor: pointer;
+    transition: all .2s; box-shadow: var(--shadow);
+  }
+  .chip:hover { background: var(--user-bg); color: #fff; border-color: var(--user-bg); transform: translateY(-1px); }
+
+  /* ===== Input ===== */
+  #input-bar { background: var(--card); border-top: 1px solid var(--border); padding: 14px 24px; }
+  #input-bar .inner { max-width: 760px; margin: 0 auto; display: flex; gap: 10px; align-items: flex-end; }
+  #question {
+    flex: 1; padding: 13px 18px; border: 1.5px solid var(--border); border-radius: 12px;
+    font-size: 14.5px; outline: none; transition: border .2s; background: var(--bg);
+    font-family: inherit; resize: none;
+  }
+  #question:focus { border-color: var(--navy); background: var(--card); }
+  #send {
+    padding: 13px 24px; background: var(--navy); color: #fff; border: none;
+    border-radius: 12px; font-size: 14.5px; cursor: pointer; transition: all .2s; font-weight: 500;
+  }
+  #send:hover { background: var(--navy-deep); }
+  #send:disabled { opacity: .4; cursor: not-allowed; }
+  #send .icon { display: inline; margin-right: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="logo.png" alt="FinRAG">
+  <div class="brand">
+    <h1>FinRAG</h1>
+    <small>金融知识库问答助手</small>
+  </div>
+  <button class="new-session" id="new-session">新会话</button>
+  <div class="health">
+    <div class="dot" id="health-dot"></div>
+    <span id="health-text">连接中…</span>
+  </div>
+</header>
+
+<div id="chat">
+  <div class="hero" id="hero">
+    <img src="logo.png" alt="FinRAG logo">
+    <h2>你好，我是 FinRAG</h2>
+    <p>基于你的金融知识库回答问题，每个结论都带引用来源</p>
+    <div class="chips">
+      <div class="chip" onclick="fill('货币基金和债券基金有什么区别')">货币基金和债券基金有什么区别？</div>
+      <div class="chip" onclick="fill('设立非银行支付机构需要什么条件')">设立非银行支付机构需要什么条件？</div>
+      <div class="chip" onclick="fill('保险人收到理赔请求后多久作出核定')">保险理赔核定期限是多久？</div>
+      <div class="chip" onclick="fill('非法集资有哪几个特征')">非法集资有哪几个特征？</div>
+    </div>
+  </div>
+</div>
+
+<div id="input-bar">
+  <div class="inner">
+    <textarea id="question" rows="1" placeholder="输入你的金融问题…" autofocus></textarea>
+    <button id="send"><span class="icon">➤</span>发送</button>
+  </div>
+</div>
+
+<script>
+const API = "http://127.0.0.1:8000";
+const chat = document.getElementById("chat");
+const hero = document.getElementById("hero");
+const input = document.getElementById("question");
+const sendBtn = document.getElementById("send");
+const healthDot = document.getElementById("health-dot");
+const healthText = document.getElementById("health-text");
+const newSessionBtn = document.getElementById("new-session");
+
+// 同一个浏览器页面使用同一个会话 ID，这就是多轮追问在后端找到历史的钥匙。
+const SESSION_KEY = "finrag_session_id";
+let sessionId = localStorage.getItem(SESSION_KEY);
+if (!sessionId) {
+  sessionId = crypto.randomUUID();
+  localStorage.setItem(SESSION_KEY, sessionId);
+}
+
+fetch(API + "/api/health")
+  .then(r => { if (r.ok) { healthDot.classList.add("on"); healthText.textContent = "在线"; } })
+  .catch(() => { healthText.textContent = "离线"; });
+
+function now() {
+  return new Date().toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
+}
+
+function scrollToBottom() {
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function hideHero() { if (hero) hero.style.display = "none"; }
+
+function fill(text) {
+  input.value = text;
+  input.focus();
+}
+
+function addRow(role, avatarHtml) {
+  const row = document.createElement("div");
+  row.className = "row " + role;
+  row.innerHTML = avatarHtml + '<div class="col"><div class="bubble"></div></div>';
+  chat.appendChild(row);
+  return row;
+}
+
+function addUserMsg(text) {
+  hideHero();
+  const row = addRow("user", '<div class="avatar">我</div>');
+  row.querySelector(".bubble").textContent = text;
+  const time = document.createElement("span");
+  time.className = "time";
+  time.textContent = now();
+  row.querySelector(".col").appendChild(time);
+  scrollToBottom();
+}
+
+function addTyping() {
+  const row = addRow("ai", '<img class="avatar" src="logo.png" alt="AI">');
+  row.id = "typing";
+  row.querySelector(".bubble").innerHTML =
+    '<div class="typing"><div class="ball"></div><div class="ball"></div><div class="ball"></div></div>';
+  scrollToBottom();
+}
+
+function removeTyping() {
+  const el = document.getElementById("typing");
+  if (el) el.remove();
+}
+
+function renderCitations(container, citations) {
+  if (!citations || !citations.length) return;
+  const wrap = document.createElement("div");
+  wrap.className = "citations";
+  for (const c of citations) {
+    const item = document.createElement("div");
+    item.className = "cite";
+    item.innerHTML = `<b>[${c.index}]</b><span></span><div class="snippet"></div>`;
+    item.querySelector("span").textContent = c.title + (c.section ? " > " + c.section : "");
+    item.querySelector(".snippet").textContent = c.snippet;
+    item.addEventListener("click", () => item.classList.toggle("open"));
+    wrap.appendChild(item);
+  }
+  container.appendChild(wrap);
+}
+
+function addAiMsg(data) {
+  removeTyping();
+  const row = addRow("ai", '<img class="avatar" src="logo.png" alt="AI">');
+  const col = row.querySelector(".col");
+  const bubble = row.querySelector(".bubble");
+  const isRefusal = data.answer.includes("资料中未找到") || data.answer.includes("未检索到");
+  if (isRefusal) bubble.classList.add("refusal");
+  bubble.textContent = data.answer;
+  renderCitations(col, data.citations);
+  const time = document.createElement("span");
+  time.className = "time";
+  time.textContent = now() + " · " + data.latency_ms + "ms";
+  col.appendChild(time);
+  scrollToBottom();
+}
+
+function addError(msg) {
+  removeTyping();
+  const row = addRow("ai", '<img class="avatar" src="logo.png" alt="AI">');
+  row.querySelector(".bubble").className = "bubble refusal";
+  row.querySelector(".bubble").textContent = "请求失败：" + msg;
+  scrollToBottom();
+}
+
+async function send() {
+  const q = input.value.trim();
+  if (!q) return;
+  input.value = "";
+  input.style.height = "auto";
+  sendBtn.disabled = true;
+  addUserMsg(q);
+  addTyping();
+  try {
+    const res = await fetch(API + "/api/ask/stream", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: q, session_id: sessionId }),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || res.statusText);
+    }
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    let row = null;
+    let col = null;
+    let bubble = null;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      // SSE 用空行分隔事件；最后一段可能还没收完，必须放回 buffer。
+      buffer += decoder.decode(value, { stream: true });
+      const events = buffer.split("\n\n");
+      buffer = events.pop();
+
+      for (const event of events) {
+        if (!event.startsWith("data: ")) continue;
+        const payload = JSON.parse(event.slice(6));
+
+        if (payload.type === "citations") {
+          removeTyping();
+          row = addRow("ai", '<img class="avatar" src="logo.png" alt="AI">');
+          col = row.querySelector(".col");
+          bubble = row.querySelector(".bubble");
+          bubble.innerHTML =
+            '<div class="thinking">' +
+              '<div class="typing"><div class="ball"></div><div class="ball"></div><div class="ball"></div></div>' +
+              '<span>模型正在思考…</span>' +
+            '</div>';
+          renderCitations(col, payload.data);
+          scrollToBottom();
+        } else if (payload.type === "token") {
+          if (bubble.querySelector(".thinking")) bubble.textContent = "";
+          bubble.textContent += payload.data;
+          bubble.classList.remove("refusal");
+          if (bubble.textContent.includes("资料中未找到") || bubble.textContent.includes("未检索到")) {
+            bubble.classList.add("refusal");
+          }
+          scrollToBottom();
+        } else if (payload.type === "done") {
+          const time = document.createElement("span");
+          time.className = "time";
+          time.textContent = now() + " · " + payload.data.latency_ms + "ms";
+          col.appendChild(time);
+          scrollToBottom();
+        } else if (payload.type === "error") {
+          throw new Error(payload.data);
+        }
+      }
+    }
+  } catch (e) {
+    addError(e.message);
+  }
+  sendBtn.disabled = false;
+  input.focus();
+}
+
+async function startNewSession() {
+  try {
+    await fetch(`${API}/api/sessions/${sessionId}/clear`, { method: "POST" });
+  } catch (_) {
+    // 服务端清理失败时也会因为 TTL 过期；本地仍要强制切换到新会话。
+  }
+  sessionId = crypto.randomUUID();
+  localStorage.setItem(SESSION_KEY, sessionId);
+  input.value = "";
+  input.style.height = "auto";
+  chat.querySelectorAll(".row").forEach(row => row.remove());
+  if (hero) hero.style.display = "flex";
+  healthDot.classList.remove("on");
+  healthText.textContent = "在线";
+  input.focus();
+}
+
+sendBtn.addEventListener("click", send);
+newSessionBtn.addEventListener("click", startNewSession);
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+});
+input.addEventListener("input", () => {
+  input.style.height = "auto";
+  input.style.height = Math.min(input.scrollHeight, 120) + "px";
+});
+</script>
+</body>
+</html>
