@@ -1,7 +1,7 @@
 """
-基于 LangChain 的 RAG 问答层：在已构建好的向量库底座上跑通"问答闭环"。
+基于 LangChain 的 RAG 问答实现。
 
-流程（一条直线，对应 MVP）：
+处理流程：
     用户问题
       -> 1. 命中“A和B分别/区别”结构时，先拆成两个独立子查询
       -> 2. BM25 + Qdrant 向量粗召回，RRF 融合
@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG = ROOT / "config" / "config.json"
 
 # 系统提示词：约束模型只依据检索资料回答、带编号引用、资料不足时拒答。
-# 这是 RAG 防止幻觉的关键，后续优化可以在这里迭代。
+# 回答边界和拒答规则都在这里维护。
 SYSTEM_PROMPT = """你是"金融知识库问答助手"，只能基于【参考资料】回答金融问题。
 
 资料边界：
@@ -54,7 +54,7 @@ SYSTEM_PROMPT = """你是"金融知识库问答助手"，只能基于【参考�
 6. 回答使用简体中文，简洁准确；末尾用“参考来源”列出实际引用过的资料标题。"""
 
 # 识别“退款险和免赔额分别怎么理解”“A 和 B 有什么区别”这类多主题问题。
-# 这里刻意使用确定性规则而不是 LLM 分解：评测可复现、延迟低、不会额外产生幻觉。
+# 使用固定规则拆题，方便复现，也避免改写模型引入新的实体。
 CROSS_DOC_PATTERN = re.compile(
     r"^(?P<left>[^和与]{2,80}?)(?:和|与)"
     r"(?P<right>[^和与]{2,100}?)"
@@ -92,8 +92,8 @@ def build_vector_store(cfg: dict) -> QdrantVectorStore:
     """连接已构建好的 Qdrant 本地库。
 
     from_existing_collection 不会重建库，只是套上 LangChain 的读取接口。
-    关键点：
-        - embedding 必须和建库时用的是同一个模型（BAAI/bge-m3），
+    注意：
+        - embedding 要和建库时使用同一个模型（BAAI/bge-m3），
           否则问题的向量空间和库里的向量空间不一致，检索会失效；
         - path 指向本地库目录（Qdrant 本地模式无需 Docker）。
     """

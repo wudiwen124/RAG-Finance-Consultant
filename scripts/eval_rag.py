@@ -194,7 +194,7 @@ def write_log(
     )
     lines.append(f"RRF 平滑常数 k：{cfg.get('hybrid', {}).get('rrf_k', 60)}")
     lines.append("")
-    lines.append("整体结果")
+    lines.append("结果")
     lines.append("-" * 42)
     lines.append(
         f"{'模式':<20}{'top4命中率':>12}{'要点覆盖':>10}{'平均排名':>10}{'MRR':>10}"
@@ -207,7 +207,7 @@ def write_log(
             f"{metrics['avg_rank']:>10.2f}{metrics['mrr']:>10.3f}"
         )
     lines.append("")
-    lines.append("本轮结论")
+    lines.append("变化")
     lines.append("-" * 42)
 
     def compare(left: str, right: str, text: str) -> None:
@@ -228,10 +228,10 @@ def write_log(
         "- top4 命中率和要点覆盖越高越好；平均排名越小越好；MRR 越大越好。"
     )
     lines.append(
-        "- BM25 的作用主要是补足精确词和专有名词召回；RRF 负责安全融合"
+        "- BM25 主要补精确词和专有名词召回；RRF 只按排名融合"
     )
     lines.append(
-        "  两路排名；reranker 最后按问题与 chunk 的细粒度相关性重排。"
+        "  两路候选；最后由 reranker 重排。"
     )
     lines.append("")
     lines.append("逐题对比（要点覆盖 100% 表示 top4 覆盖全部期望答案点）")
@@ -269,9 +269,8 @@ def write_log(
         "4. RRF 只使用排名融合，避免 BM25 分数和向量相似度分数直接相加。"
     )
     lines.append(
-        "5. 只把重排后的 4 条送进大模型，提高上下文信噪比，减少无关"
+        "5. 只把重排后的 4 条送进大模型，减少无关资料干扰。"
     )
-    lines.append("   资料干扰，也让 [1][2] 引用更准。")
     lines.append(
         "6. 如果 rerank 接口异常，脚本会自动回退；BM25 索引异常时，"
     )

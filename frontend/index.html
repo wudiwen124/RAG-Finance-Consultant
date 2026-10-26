@@ -162,8 +162,8 @@
 <div id="chat">
   <div class="hero" id="hero">
     <img src="logo.png" alt="FinRAG logo">
-    <h2>你好，我是 FinRAG</h2>
-    <p>基于你的金融知识库回答问题，每个结论都带引用来源</p>
+    <h2>金融知识库问答</h2>
+    <p>回答会附上本次检索到的资料出处</p>
     <div class="chips">
       <div class="chip" onclick="fill('货币基金和债券基金有什么区别')">货币基金和债券基金有什么区别？</div>
       <div class="chip" onclick="fill('设立非银行支付机构需要什么条件')">设立非银行支付机构需要什么条件？</div>
@@ -181,7 +181,8 @@
 </div>
 
 <script>
-const API = "http://127.0.0.1:8000";
+// 让页面在本机和公网隧道下都能工作：直接请求当前页面所在域名。
+const API = window.location.origin.startsWith("http") ? window.location.origin : "http://127.0.0.1:8000";
 const chat = document.getElementById("chat");
 const hero = document.getElementById("hero");
 const input = document.getElementById("question");
@@ -190,7 +191,7 @@ const healthDot = document.getElementById("health-dot");
 const healthText = document.getElementById("health-text");
 const newSessionBtn = document.getElementById("new-session");
 
-// 同一个浏览器页面使用同一个会话 ID，这就是多轮追问在后端找到历史的钥匙。
+// 同一页面复用会话 ID，后端据此找到多轮对话记录。
 const SESSION_KEY = "finrag_session_id";
 let sessionId = localStorage.getItem(SESSION_KEY);
 if (!sessionId) {
@@ -335,7 +336,7 @@ async function send() {
           bubble.innerHTML =
             '<div class="thinking">' +
               '<div class="typing"><div class="ball"></div><div class="ball"></div><div class="ball"></div></div>' +
-              '<span>模型正在思考…</span>' +
+              '<span>正在生成…</span>' +
             '</div>';
           renderCitations(col, payload.data);
           scrollToBottom();

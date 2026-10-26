@@ -348,13 +348,13 @@ def category_table(rows: list[dict]) -> list[str]:
 
 
 def write_report(rows: list[dict], metrics: dict) -> None:
-    """生成 Markdown 报告。"""
+    """生成多轮记忆评测报告。"""
     lines = [
-        "# 多轮记忆评测报告",
+        "# 多轮会话评测",
         "",
         f"评测时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         "",
-        "## 评测范围",
+        "## 这轮怎么跑",
         "",
         f"- 评测目标轮数：{metrics['total']} 题",
         "- 会话理解：`ConversationMemory` + `route_question`",
@@ -362,7 +362,7 @@ def write_report(rows: list[dict], metrics: dict) -> None:
         "- 检索链路：BM25 + 向量 + RRF + Reranker + 跨文档拆分",
         "- 本轮不调用最终答案生成模型；答案级幻觉由既有答案级评测负责",
         "",
-        "## 核心指标",
+        "## 结果",
         "",
         "| 指标 | 结果 | 说明 |",
         "| --- | ---: | --- |",
@@ -378,14 +378,14 @@ def write_report(rows: list[dict], metrics: dict) -> None:
         f"| 多轮链路成功率 | {metrics['pipeline_success_rate']:.1%} | memory 正确取回，或 knowledge/hybrid 全部证据命中 |",
         f"| 平均单轮理解/检索耗时 | {metrics['avg_latency_ms']:.0f} ms | 含路由 LLM、Embedding、BM25、Rerank |",
         "",
-        "## 分类别结果",
+        "## 分类结果",
         "",
     ]
     lines.extend(category_table(rows))
     lines.extend(
         [
             "",
-            "## 判读方式",
+            "## 指标说明",
             "",
             "- `memory` 只评测历史召回，不做知识库检索；",
             "- `knowledge/hybrid` 只评测路由后的独立查询和 Top4 证据，不评测最终回答；",
@@ -394,7 +394,7 @@ def write_report(rows: list[dict], metrics: dict) -> None:
             "- 部分追问在语义上可标为 `hybrid`，但当前实现只需要改写为独立查询后检索，"
             "因此路由器返回 `knowledge` 也能完成链路；严格意图口径会把它记为不一致。",
             "",
-            "## 人工复核优先级",
+            "## 建议先看的样本",
             "",
         ]
     )
@@ -437,7 +437,7 @@ def main() -> int:
     metrics = summarize(rows)
     write_report(rows, metrics)
 
-    print("\n多轮记忆核心指标")
+    print("\n多轮会话结果")
     for key, value in metrics.items():
         print(f"{key}: {value:.3f}" if isinstance(value, float) else f"{key}: {value}")
     print(f"\n明细：{DEFAULT_DETAIL_FILE}")

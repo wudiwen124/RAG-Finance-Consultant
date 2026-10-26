@@ -286,7 +286,7 @@ async def clear_session(session_id: str) -> dict:
 @app.get("/")
 async def serve_frontend():
     """把 frontend/index.html 挂在根路径，浏览器打开 http://localhost:8000 即可使用。"""
-    return FileResponse(FRONTEND_DIR / "index.html")
+    return FileResponse(FRONTEND_DIR / "index.html", headers={"Cache-Control": "no-store"})
 
 
 @app.get("/logo.png")

@@ -303,7 +303,7 @@ def evaluate_answer_cases(
         coverage = keyword_group_coverage(answer, groups)
         refusal_correct = (not answerable and refusal) or (answerable and not refusal)
         citation_valid = citation_format_valid(answer, len(hits), refusal)
-        # Judge 只做事实核对，不需要完整生成上下文；短输入能显著降低超时概率。
+        # Judge 只做事实核对，不需要完整生成上下文；截短输入可减少超时。
         context = format_judge_context(hits, cfg)
         # 资料不足题已经用拒答标记判定；Judge 主要针对有答案的题。
         judge = {"answer_supported": False, "citation_supported": False, "fabrication_detected": False, "unsupported_claims": [], "reason": "资料不足题未调用 Judge", "judge_error": ""}
@@ -394,20 +394,20 @@ def summarize(rows: list[dict]) -> dict:
 
 
 def write_report(rows: list[dict], metrics: dict, report_file: Path = REPORT_FILE) -> None:
-    """生成 Markdown 报告和最值得人工复核的明细。"""
+    """生成答案质量报告，并列出需要回看的异常样本。"""
     lines = [
-        "# RAG 答案级评测报告",
+        "# 答案质量评测",
         "",
         f"评测时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         "",
-        "## 评测对象",
+        "## 这轮怎么跑",
         "",
         "- 检索链路：BM25 + 向量 + RRF + Qwen3-Reranker-4B；"
         "命中跨文档结构时自动拆分子查询并按主题配额融合",
         "- 生成模型：Qwen/Qwen3-8B",
         "- 判定模型：与生成模型同配置，温度为 0",
         "",
-        "## 样本构成",
+        "## 样本",
         "",
     ]
     categories = Counter(row["category"] for row in rows)
@@ -417,7 +417,7 @@ def write_report(rows: list[dict], metrics: dict, report_file: Path = REPORT_FIL
     lines.extend(
         [
             "",
-            "## 核心指标",
+            "## 结果",
             "",
             "| 指标 | 结果 | 说明 |",
             "| --- | ---: | --- |",
@@ -432,14 +432,14 @@ def write_report(rows: list[dict], metrics: dict, report_file: Path = REPORT_FIL
             f"| Judge 异常率 | {metrics['judge_error_rate']:.1%} | Judge 接口或解析失败比例 |",
             f"| Judge 超时率 | {metrics['judge_timeout_rate']:.1%} | 超时样本单独标记，不参与语义指标 |",
             "",
-            "## 判读方式",
+            "## 指标说明",
             "",
             "- 检索评测只回答“证据有没有进来”；答案级评测回答“最终话说得对不对”。",
             "- `概念全对率` 是确定性指标，容易受同义表达影响；`Judge 支持率` 用来补足语义判断。",
             "- 幻觉率不是越低越好就结束，还要看 unsupported_claims 是否只是措辞问题。",
             "- 资料不足题不进入检索命中率，只检查是否拒答且没有编造。",
             "",
-            "## 人工复核优先级",
+            "## 建议先看的样本",
             "",
         ]
     )
@@ -498,7 +498,7 @@ def main() -> int:
     metrics = summarize(rows)
     write_report(rows, metrics, report_file=args.report)
 
-    print("\n答案级核心指标")
+    print("\n答案质量结果")
     for key, value in metrics.items():
         print(f"{key}: {value:.3f}" if isinstance(value, float) else f"{key}: {value}")
     print(f"\n明细：{args.detail}")
